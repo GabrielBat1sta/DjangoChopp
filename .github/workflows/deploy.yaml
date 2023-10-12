@@ -18,7 +18,7 @@ jobs:
 
     - name: Instalar dependências do Python
       run: |
-        pip install -r requirements.txt
+        pip install django
       working-directory: ./setup
 
     - name: Executar seu script Django

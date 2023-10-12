@@ -19,9 +19,9 @@ jobs:
     - name: Instalar dependências do Python
       run: |
         pip install django
-      working-directory: ./setup  # Substitua pelo caminho do seu projeto Django
+      working-directory: ./DjangoChopp  # Substitua pelo caminho do seu projeto Django
 
     - name: Executar Testes Django
       run: |
         python manage.py test
-      working-directory: ./teste # Substitua pelo caminho do seu projeto Django
+      working-directory: ./DjangoChopp # Substitua pelo caminho do seu projeto Django

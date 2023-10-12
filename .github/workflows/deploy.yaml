@@ -1,1 +1,43 @@
 
+name: Deploy Django App
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11.6
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+        working-directory: ./setup
+
+      - name: Migrate Database
+        run: python manage.py migrate
+        working-directory: ./setup
+
+      - name: Collect Static Files
+        run: python manage.py collectstatic --noinput
+        working-directory: ./setup
+
+      - name: Restart Nginx
+        run: |
+          sudo systemctl restart nginx
+        shell: bash
+
+      # Etapa de teste
+
+      - name: Deployment Complete
+        run: echo "Deployment completed successfully."
+

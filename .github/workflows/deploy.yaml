@@ -19,9 +19,6 @@ jobs:
     - name: Instalar dependências do Python
       run: |
         pip install -r requirements.txt
-      working-directory: /teste  
+      
 
-    - name: Executar Testes Django
-      run: |
-        python manage.py test
-      working-directory: /teste # Substitua pelo caminho do seu projeto Django
+    

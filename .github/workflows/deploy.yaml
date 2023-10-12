@@ -14,14 +14,14 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11.6'  # Substitua pela versão do Python desejada
+        python-version: '3.11.6'  
 
     - name: Instalar dependências do Python
       run: |
         pip install -r requirements.txt
-      working-directory: ./DjangoChopp  # Substitua pelo caminho do seu projeto Django
+      working-directory: /teste  
 
     - name: Executar Testes Django
       run: |
         python manage.py test
-      working-directory: ./DjangoChopp  # Substitua pelo caminho do seu projeto Django
+      working-directory: /teste # Substitua pelo caminho do seu projeto Django

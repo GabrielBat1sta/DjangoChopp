@@ -1,0 +1,25 @@
+name: DjangoChopp App
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout do Código
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11.6'  
+
+    - name: Instalar dependências do Python
+      run: |
+        pip install django
+      working-directory: ./setup
+
+    - name: Executar seu script Django
+      run: python manage.py runserver  

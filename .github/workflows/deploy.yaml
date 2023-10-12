@@ -1,11 +1,11 @@
-name: DjangoChopp App
+name: Teste da Aplicação DjangoChopp
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout do Código
@@ -14,12 +14,14 @@ jobs:
     - name: Configurar Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.11.6'  
+        python-version: '3.11.6'  # Substitua '3.x' pela versão do Python desejada
 
     - name: Instalar dependências do Python
       run: |
         pip install django
-      working-directory: ./setup
+      working-directory: ./setup  # Substitua pelo caminho do seu projeto Django
 
-    - name: Executar seu script Django
-      run: python manage.py runserver  
+    - name: Executar Testes Django
+      run: |
+        python manage.py test
+      working-directory: ./teste # Substitua pelo caminho do seu projeto Django
